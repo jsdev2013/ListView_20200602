@@ -29,6 +29,7 @@ class MainActivity : BaseActivity() {
         students.add(Student("삼삼삼", 1987, false))
         students.add(Student("시시시", 1986, false))
         students.add(Student("오오오", 1984, true))
+        students.add(Student("육육육", 1981, true))
 
         studentAdapter = StudentAdapter(mContext, R.layout.student_list_item, students)
         studentListView.adapter = studentAdapter

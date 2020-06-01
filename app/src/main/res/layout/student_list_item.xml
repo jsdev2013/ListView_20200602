@@ -12,6 +12,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/nameAndAgeTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
@@ -19,12 +20,11 @@
             android:text="이름(??세)"/>
 
         <TextView
+            android:id="@+id/genderTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="성별"/>
 
     </LinearLayout>
-
-
 </LinearLayout>

@@ -22,9 +22,15 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
-        studentListView.setOnItemClickListener(){parent, view, position, id ->
+        studentListView.setOnItemClickListener { parent, view, position, id ->
             val clickedStudent = students.get(position)
-            Toast.makeText(mContext,clickedStudent.name, Toast.LENGTH_SHORT)
+            Toast.makeText(mContext, clickedStudent.name, Toast.LENGTH_SHORT).show()
+        }
+
+        studentListView.setOnItemLongClickListener { parent, view, position, id ->
+            var clickedStudent = students[position]
+            Toast.makeText(mContext, "${clickedStudent.name} 오래 누름", Toast.LENGTH_SHORT).show()
+            return@setOnItemLongClickListener true
         }
     }
 

@@ -37,11 +37,12 @@ class StudentAdapter(context: Context, resId: Int, list: List<Student>) :ArrayAd
         // 한국 현재 나이 구하기
         var curTime = System.currentTimeMillis()
         val dateFormat = SimpleDateFormat("yyyy", Locale.KOREAN)
-        val curDate = dateFormat.format(curTime)
-        val age = (curDate.toInt() - birthTxt + 1).toString()
-        val name = data.name
+        val curYear = dateFormat.format(curTime)
+//        val age = (curYear.toInt() - birthTxt + 1).toString()
+//        val name = data.name
+//        nameAndAgeTxt.text = "$name ($age)"
 
-        nameAndAgeTxt.text = "$name ($age)"
+        nameAndAgeTxt.text = "${data.name} (${data.getKoreanAge(curYear.toInt())})"
 
         if(data.isMale){
             genderTxt.text = "남성"

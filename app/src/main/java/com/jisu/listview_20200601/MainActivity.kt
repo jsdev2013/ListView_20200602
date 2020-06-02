@@ -1,12 +1,11 @@
 package com.jisu.listview_20200601
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.DialogInterface
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.jisu.listview_20200601.adapters.StudentAdapter
 import com.jisu.listview_20200601.datas.Student
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
@@ -30,9 +29,17 @@ class MainActivity : BaseActivity() {
         studentListView.setOnItemLongClickListener { parent, view, position, id ->
 //            var clickedStudent = students[position]
 //            Toast.makeText(mContext, "${clickedStudent.name} 오래 누름", Toast.LENGTH_SHORT).show()
+            val alert = AlertDialog.Builder(mContext)
+            alert.setTitle("삭제 확인")
+            alert.setMessage("정말 이 학생을 삭제하시겠습니까?")
+            alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which ->
+                students.removeAt(position)
+                studentAdapter.notifyDataSetChanged()
+            })
 
-            students.removeAt(position)
-            studentAdapter.notifyDataSetChanged()
+            alert.setNegativeButton("취소", DialogInterface.OnClickListener { dialog, which -> null })
+            alert.show()
+
             return@setOnItemLongClickListener true
         }
     }
@@ -45,7 +52,7 @@ class MainActivity : BaseActivity() {
         students.add(Student("오오오", 1984, true))
         students.add(Student("육육육", 1981, true))
 
-        studentAdapter = StudentAdapter(mContext, R.layout.student_list_item, students)
+        studentAdapter = StudentAdapter(mContext, R.layout.room_list_item, students)
         studentListView.adapter = studentAdapter
     }
 }

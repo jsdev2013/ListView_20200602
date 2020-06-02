@@ -9,9 +9,7 @@ import android.widget.TextView
 import com.jisu.listview_20200601.R
 import com.jisu.listview_20200601.datas.Student
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.util.*
-import kotlin.time.days
 
 class StudentAdapter(context: Context, resId: Int, list: List<Student>) :ArrayAdapter<Student>(context, resId, list) {
 
@@ -26,7 +24,7 @@ class StudentAdapter(context: Context, resId: Int, list: List<Student>) :ArrayAd
         * 처음에 몇개를 그릴때는 재활용할 뷰가 아직없다(그려둔 갯수가 부족해서)
         * converView 변수가 null일 때만 infalte 하자*/
         if(tempRow == null){
-            tempRow = inf.inflate(R.layout.student_list_item, null)
+            tempRow = inf.inflate(R.layout.room_list_item, null)
         }
 
         val row = tempRow!!

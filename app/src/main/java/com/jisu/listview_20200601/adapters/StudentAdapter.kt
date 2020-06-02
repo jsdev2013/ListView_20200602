@@ -22,6 +22,9 @@ class StudentAdapter(context: Context, resId: Int, list: List<Student>) :ArrayAd
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var tempRow = convertView
 
+        /*converView 변수에 재활용할 뷰가 담겨서  getView가 실행됨
+        * 처음에 몇개를 그릴때는 재활용할 뷰가 아직없다(그려둔 갯수가 부족해서)
+        * converView 변수가 null일 때만 infalte 하자*/
         if(tempRow == null){
             tempRow = inf.inflate(R.layout.student_list_item, null)
         }

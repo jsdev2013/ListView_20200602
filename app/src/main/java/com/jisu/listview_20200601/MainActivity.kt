@@ -3,6 +3,7 @@ package com.jisu.listview_20200601
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.jisu.listview_20200601.adapters.StudentAdapter
 import com.jisu.listview_20200601.datas.Student
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,6 +22,10 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        studentListView.setOnItemClickListener(){parent, view, position, id ->
+            val clickedStudent = students.get(position)
+            Toast.makeText(mContext,clickedStudent.name, Toast.LENGTH_SHORT)
+        }
     }
 
     override fun setValues() {

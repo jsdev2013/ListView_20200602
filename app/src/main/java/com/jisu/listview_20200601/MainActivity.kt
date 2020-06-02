@@ -28,8 +28,11 @@ class MainActivity : BaseActivity() {
         }
 
         studentListView.setOnItemLongClickListener { parent, view, position, id ->
-            var clickedStudent = students[position]
-            Toast.makeText(mContext, "${clickedStudent.name} 오래 누름", Toast.LENGTH_SHORT).show()
+//            var clickedStudent = students[position]
+//            Toast.makeText(mContext, "${clickedStudent.name} 오래 누름", Toast.LENGTH_SHORT).show()
+
+            students.removeAt(position)
+            studentAdapter.notifyDataSetChanged()
             return@setOnItemLongClickListener true
         }
     }

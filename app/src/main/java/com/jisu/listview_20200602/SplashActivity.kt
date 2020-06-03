@@ -1,7 +1,9 @@
 package com.jisu.listview_20200602
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 
 class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -10,12 +12,15 @@ class SplashActivity : BaseActivity() {
         setupEvents()
         setValues()
     }
-
     override fun setupEvents() {
-        TODO("Not yet implemented")
-    }
 
+        val myHandler = Handler()
+        myHandler.postDelayed({
+            var intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }, 3000)
+    }
     override fun setValues() {
-        TODO("Not yet implemented")
     }
 }
